@@ -1,9 +1,6 @@
 import mypack.MyTools;
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class Numbers {
@@ -34,14 +31,15 @@ public class Numbers {
         }
         return array;
     }
-    protected void saveData() throws IOException {
+    protected void saveData() throws Exception {
         Main aux = new Main();
+
 
         ArrayList<String> infoNumbers =  new ArrayList<>();
         infoNumbers.add("lines nº: "+ aux.getCntLine()+"");
         infoNumbers.add("execution duration: "+ aux.getTimeExe()+"");
-        infoNumbers.add("save nº: "+ cntSave);
-        
+        infoNumbers.add("save nº: "+ aux.getDigit());
+
         BufferedWriter saveData =  new BufferedWriter(new FileWriter("number_class_info.txt", true));
 
         try{
@@ -55,7 +53,4 @@ public class Numbers {
             saveData.close();
         }
     }
-
-
-
 }
